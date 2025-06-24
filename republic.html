@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Republic OS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente Campana Script (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Campana+Script&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="picture/republic.png">
+    <!-- O si usas .ico -->
+    <!-- <link rel="icon" href="picture/favicon.ico"> -->
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #302181 0%, #02f8cf 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .top-header-flex {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 90vw;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center; /* Centrados horizontalmente */
+            gap: 16px; /* Más juntos */
+            z-index: 300;
+            user-select: none;
+        }
+        .top-brand {
+            position: static;
+            margin: 0;
+            text-align: left;
+            font-size: 5em;
+            font-family: 'Campana Script', cursive, 'Pacifico', 'Segoe Script', 'Comic Sans MS', Calibri, sans-serif;
+            font-weight: normal;
+            color: #fdfdfd;
+            letter-spacing: 10px;
+            /* Efecto 3D */
+            text-shadow:
+                0 4px 12px #1e3c72,
+                0 1px 0 #2a5298,
+                2px 2px 0 #049ee6,
+                0 8px 24px #049ee6;
+            filter: drop-shadow(0 2px 8px #2a5298);
+        }
+        .top-image {
+            position: static;
+            margin: 0;
+            text-align: right;
+        }
+        .top-image img {
+            height: 110px;
+            width: auto;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px #f9f9fa;
+        }
+        .central-box {
+            position: relative;
+            z-index: 2;
+            background: #000314de;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(253, 255, 255, 0.87);
+            padding: 40px 32px 70px 32px;
+            max-width: 700px; /* Cambiado de 1200px a 700px */
+            margin: 24px auto 24px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            justify-content: center;
+            border: 3px solid #fcfdfd;
+        }
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
+        }
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .row img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(44,83,100,0.08);
+        }
+        .row-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #02c7f8;
+            margin: 0;
+        }
+        .row-desc {
+            font-size: 0.9em;
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+        }
+        .oval-btn {
+            display: inline-block;
+            padding: 10px 32px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #22027c 0%, #2a5298 100%);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            border: none;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(44,83,100,0.12);
+        }
+        .oval-btn:hover {
+            background: linear-gradient(90deg, #22027c 0%, #02f8cf 100%);
+        }
+        .bottom-oval {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: #000316;
+            border-radius: 999px;
+            padding: 6px 18px;
+            gap: 16px;
+            min-width: 180px;
+            box-shadow: 0 2px 8px rgba(2, 174, 248, 0.781);
+            border: 2px solid #fcfdfd;
+        }
+        .bottom-link {
+            color: #02b5fc;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .bottom-link:hover {
+            background: linear-gradient(90deg, #02f8cf 0%, #02187c 100%);
+            color: #ffffff;
+        }
+        @media (max-width: 1200px) {
+            .central-box {
+                max-width: 98vw;
+            }
+            .row-container {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            .row {
+                min-width: 90px;
+            }
+        }
+        @media (max-width: 900px) {
+            .top-header-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            .top-brand {
+                font-size: 2.5em;
+                text-align: center;
+            }
+            .top-image img {
+                height: 60px;
+            }
+            .central-box {
+                padding: 24px 8px 120px 8px;
+            }
+        }
+        @media (max-width: 600px) {
+            .top-header-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                width: 100vw;
+                top: 12px;
+            }
+            .top-brand {
+                font-size: 1.3em;
+                letter-spacing: 3px;
+                text-align: center;
+            }
+            .top-image img {
+                height: 36px;
+                border-radius: 12px;
+            }
+            .central-box {
+                max-width: 98vw;
+                padding: 8px 2vw 40px 2vw;
+                border-radius: 10px;
+                margin: 12px auto;
+            }
+            .central-box-inner {
+                width: 98vw;
+                max-width: 99vw;
+                padding: 8px 2vw 20px 2vw;
+                border-radius: 8px;
+                gap: 16px;
+            }
+            .row-container {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                align-items: center;
+            }
+            .row {
+                width: 100%;
+                min-width: unset;
+                align-items: center;
+                gap: 8px;
+            }
+            .row img {
+                width: 48px;
+                height: 48px;
+                border-radius: 8px;
+            }
+            .row-title {
+                font-size: 1em;
+            }
+            .row-desc {
+                font-size: 0.85em;
+            }
+            .oval-btn {
+                padding: 8px 18px;
+                font-size: 0.95em;
+            }
+            .bottom-oval-fixed {
+                right: 8px;
+                bottom: 8px;
+            }
+            .bottom-oval {
+                min-width: 120px;
+                padding: 4px 8px;
+                gap: 8px;
+            }
+            .bottom-link {
+                font-size: 0.9em;
+                padding: 2px 8px;
+            }
+        }
+        .bottom-oval-fixed {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-end;
+            width: auto;
+            pointer-events: auto;
+        }
+        /* Estilos para el fondo ondulado */
+        .wave-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0; /* Debe ser menor que el de .central-box */
+            pointer-events: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2302b5f8" fill-opacity="1" d="M0,128L30,133.3C60,139,120,149,180,160C240,171,300,181,360,186.7C420,192,480,192,540,186.7C600,181,660,171,720,160C780,149,840,139,900,133.3C960,128,1020,128,1080,138.7C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320H0Z"></path></svg>') no-repeat center top;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo ondulado ascendente detrás del cuadro central -->
+    <div class="wave-bg"></div>
+    <!-- Encabezado superior en flex: texto a la izquierda, imagen a la derecha -->
+    <div class="top-header-flex">
+        <div class="top-brand">Republic OS</div>
+        <div class="top-image">
+            <img src="picture/republic.png" alt="Logo Republic">
+        </div>
+    </div>
+    <div style="margin-top: 160px;">
+        <div class="central-box">
+            <div class="central-box-inner">
+                <!-- Primera fila de 3 accesos -->
+                <div class="row-container">
+                    <div class="row">
+                        <img src="picture/republic.png" alt="Republic OS">
+                        <div class="row-title">Republic OS</div>
+                        <a class="oval-btn" href="#">Descargar</a>
+                        <div class="row-desc">Sistema Operativo.</div>
+                    </div>
+                    <div class="row">
+                        <img src="picture/republic.png" alt="Republic OS">
+                        <div class="row-title">Republic OS</div>
+                        <a class="oval-btn" href="#">Descargar</a>
+                        <div class="row-desc">Sistema Operativo.</div>
+                    </div>
+                    <div class="row">
+                        <img src="picture/republic.png" alt="Republic OS">
+                        <div class="row-title">Republic OS</div>
+                        <a class="oval-btn" href="#">Descargar</a>
+                        <div class="row-desc">Sistema Operativo.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cuadro inferior fijo en la esquina derecha, fuera del central-box -->
+    <div class="bottom-oval-fixed">
+        <div class="bottom-oval">
+            <a class="bottom-link" href="https://br-cybec.github.io/">Home</a>
+            <a class="bottom-link" href="https://hero-br.github.io/webapps.html">WebApps</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>B&R.Comp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fuente Campana Script (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Campana+Script&display=swap" rel="stylesheet">
+     <link rel="icon" type="image/png" href="picture/B&R.png">
+    <!-- O si usas .ico -->
+    <!-- <link rel="icon" href="picture/favicon.ico"> -->
     <style>
         body {
             min-height: 100vh;
@@ -128,6 +132,52 @@
                 font-size: 2.2em;
                 letter-spacing: 2px;
                 top: 16px;
+            }
+        }
+        @media (max-width: 600px) {
+            .top-brand {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+                top: 10px;
+                padding: 0 8px;
+            }
+            .central-box {
+                padding: 16px 4vw 12px 4vw;
+                border-radius: 14px;
+                max-width: 98vw;
+                min-width: unset;
+                box-sizing: border-box;
+            }
+            .row-container {
+                flex-direction: column;
+                gap: 18px;
+                width: 100%;
+                align-items: center;
+            }
+            .row img {
+                width: 56px;
+                height: 56px;
+                border-radius: 10px;
+            }
+            .row-title {
+                font-size: 1em;
+            }
+            .oval-btn {
+                padding: 8px 18px;
+                font-size: 0.95em;
+            }
+            .bottom-oval-fixed {
+                right: 8px;
+                bottom: 8px;
+            }
+            .bottom-oval {
+                min-width: 120px;
+                padding: 4px 8px;
+                gap: 8px;
+            }
+            .bottom-link {
+                font-size: 0.9em;
+                padding: 2px 8px;
             }
         }
         .bottom-oval-fixed {
