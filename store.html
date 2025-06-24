@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente Campana Script (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Campana+Script&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="picture/a.png">
+    <!-- O si usas .ico -->
+    <!-- <link rel="icon" href="picture/favicon.ico"> -->
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #060122 0%, #02f8cf 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .top-image {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            z-index: 300;
+            user-select: none;
+        }
+        .top-image img {
+            height: 110px;
+            width: auto;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px #f9f9fa;
+        }
+        .central-box {
+            background: #000314de;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(253, 255, 255, 0.87);
+            padding: 40px 32px 60px 32px; /* padding-bottom reducido */
+            max-width: 1200px;
+            margin: 0 auto 24px auto;     /* margen inferior reducido */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            justify-content: center;
+            border: 1px solid #fcfdfd;
+        }
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
+        }
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .row img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(44,83,100,0.08);
+        }
+        .row-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #02c7f8;
+            margin: 0;
+        }
+        .row-desc {
+            font-size: 0.9em;
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+        }
+        .oval-btn {
+            display: inline-block;
+            padding: 10px 32px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #22027c 0%, #2a5298 100%);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            border: none;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(44,83,100,0.12);
+        }
+        .oval-btn:hover {
+            background: linear-gradient(90deg, #22027c 0%, #02f8cf 100%);
+        }
+        .bottom-oval {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: #000316;
+            border-radius: 999px;
+            padding: 6px 18px;
+            gap: 16px;
+            min-width: 180px;
+            box-shadow: 0 2px 8px rgba(2, 174, 248, 0.781);
+            border: 2px solid #fdfcfd;
+        }
+        .bottom-link {
+            color: #02b5fc;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .bottom-link:hover {
+            background: linear-gradient(90deg, #02f8cf 0%, #02187c 100%);
+            color: #ffffff;
+        }
+        @media (max-width: 1200px) {
+            .central-box {
+                max-width: 98vw;
+            }
+            .row-container {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            .row {
+                min-width: 90px;
+            }
+        }
+        @media (max-width: 900px) {
+            .row-container {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .central-box {
+                padding: 24px 8px 120px 8px;
+            }
+            .top-image img {
+                height: 60px;
+            }
+        }
+        @media (max-width: 600px) {
+            .central-box {
+                padding: 8px 2px 80px 2px;
+                border-radius: 10px;
+            }
+            .row-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .row {
+                min-width: unset;
+                width: 100%;
+            }
+            .row img {
+                width: 60px;
+                height: 60px;
+            }
+            .top-image img {
+                height: 40px;
+            }
+            .bottom-oval-fixed {
+                right: 8px;
+                bottom: 8px;
+            }
+        }
+        .bottom-oval-fixed {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-end;
+            width: auto;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen superior (reemplaza src por tu logo o imagen preferida) -->
+    <div class="top-image">
+        <img src="picture/store.png" alt="Logo Store">
+    </div>
+    <div style="margin-top: 160px;">
+        <div class="central-box">
+            <!-- Primera fila de 7 accesos -->
+            <div class="row-container">
+                <div class="row">
+                    <img src="picture/Conver.png" alt="Conver">
+                    <div class="row-title">Conver Picture</div>
+                    <a class="oval-btn" href="https://hero-br.github.io/conver-picture.html" target="_blank">Acceder</a>
+                    <div class="row-desc">Convierte imágenes fácilmente.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/Conver.png" alt="Conver">
+                    <div class="row-title">Conver PDF</div>
+                    <a class="oval-btn" href="https://hero-br.github.io/conver-pdf.html" target="_blank">Acceder</a>
+                    <div class="row-desc">Convierte archivos PDF rápidamente.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/ad.png" alt="AirDroid">
+                    <div class="row-title">AirDroid</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Gestiona tu dispositivo desde la web.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+            </div>
+            <!-- Segunda fila de 7 accesos -->
+            <div class="row-container" style="margin-top:24px;">
+                <div class="row">
+                    <img src="picture/stellar-fox.png" alt="Stellar Fox">
+                    <div class="row-title">Stellar Fox</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Stellar Fox Browser, version estable.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/stellar-fox.png" alt="Stellar Fox">
+                    <div class="row-title">Stellar Fox</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Stellar Fox Browser, version ampliada.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/stellar-fox.png" alt="Stellar Fox">
+                    <div class="row-title">Stellar Fox</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Stellar Fox Browser, version desarrollo.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/floorp.png" alt="Floorp">
+                    <div class="row-title">Floorp</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Floorp Browser Japones base Firefox.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/zen.png" alt="Zen-Browser">
+                    <div class="row-title">Zen-Browser</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Zen-Browser base Firefox.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/pika.png" alt="PikaTorrent">
+                    <div class="row-title">PikaTorrent</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">PikaTorrent Cliente Torrent.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="https://terran-os.github.io/" target="_blank">Acceder</a>
+                    <div class="row-desc">Descripción breve de Store.</div>
+                </div>
+            </div>
+            <!-- Tercera fila de 7 accesos -->
+            <div class="row-container" style="margin-top:24px;">
+                <div class="row">
+                    <img src="picture/youtube-music.png" alt="YouTube-Music">
+                    <div class="row-title">YouTube-Music</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Escucha música de YouTube.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/audiomack.png" alt="Audiomack">
+                    <div class="row-title">Audiomack</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Streaming de música gratis.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/chatgpt.webp" alt="ChatGPT">
+                    <div class="row-title">ChatGPT</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Asistente de IA conversacional.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/copilot.png" alt="Copilot">
+                    <div class="row-title">Copilot</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Asistente de programación por IA.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+                <div class="row">
+                    <img src="picture/a.png" alt="Store">
+                    <div class="row-title">Store</div>
+                    <a class="oval-btn" href="#" target="_blank">Acceder</a>
+                    <div class="row-desc">Acceso a la tienda de apps.</div>
+                </div>
+            </div>
+        </div> <!-- cierre de central-box -->
+    </div>
+    <!-- Cuadro inferior fijo en la esquina derecha, fuera del central-box -->
+    <div class="bottom-oval-fixed">
+        <div class="bottom-oval">
+            <a class="bottom-link" href="https://br-cybec.github.io/" target="_blank">Home</a>
+            <a class="bottom-link" href="https://hero-br.github.io/webapps.html" target="_blank">WebApps</a>
+        </div>
+    </div>
+</body>
+</html>

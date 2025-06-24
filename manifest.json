@@ -1,0 +1,21 @@
+{
+  "name": "Store",
+  "short_name": "Store",
+  "start_url": "https://br-cybec.github.io/store.html",
+  "display": "standalone",
+  "background_color": "#060122",
+  "theme_color": "#02c7f8",
+  "description": "Acceso rápido a tus apps y herramientas favoritas.",
+  "icons": [
+    {
+      "src": "picture/a.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "picture/a.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
